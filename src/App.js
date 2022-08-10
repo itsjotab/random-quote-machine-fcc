@@ -1,29 +1,54 @@
+import React, { useState } from 'react';
 import './App.css';
+import axios from "axios";
+import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
 
-
-
-fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes')
-  .then(res => res.json())
-  .then(user => {
-    user.quotes.filter(quote => {
-      console.log(quote)
-  }
-  )
 
 
 
 function App() {
+  
+  const [text, setText] = useState('');
+  const [author, setAuthor] = useState('');
+  const [refresh, setRefresh] = useState(true)
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+  const GetPosts = async () => {
+    try {
+      const userPosts = await axios.get(`https://goquotes-api.herokuapp.com/api/v1/random?count=1`);
+      console.log(userPosts)
+      userPosts.data.quotes.map(quote => {
+        console.log('hello')
+        setText(quote.text);
+        setAuthor(quote.author);
+      }
+      )
+
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const answer = GetPosts()
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
-    <div id="quote-box" className="quote-box">SHOULD BE HORIZONTALLY CENTERED
+    <div id="quote-box" className="quote-box">
       <div>
-        <h1 id="text" className="tex">{this.state.text}</h1>
-        <h6 id="author">Random Quote Author Should Appear Here</h6>
+        <h2 id="text" className="text"><i>{text}</i></h2>
+        <h4 id="author" className="author">- {author}</h4>
       </div>
-      <div>
-        <button id="new-quote" >FETCH A NEW QUOTE AND THE AUTHOR</button>
-        <div>
-          <a href="twitter.com/intent/tweet" target='/'>SHOULD tweeett! THE QUOTE</a>
-        </div>
+      <div className='footer'>
+        <button className="tweet">
+          <a className="twitter-share-button" href="https://twitter.com/intent/tweet" target='_blank'><FaTwitter size="28px" color="white" /></a>
+        </button>
+        <button id="new-quote" className="new-quote" onClick={refreshPage}>New Quote</button>
       </div>
     </div>
   );
