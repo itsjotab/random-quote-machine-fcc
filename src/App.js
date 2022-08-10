@@ -37,6 +37,8 @@ function App() {
     window.location.reload(false);
   }
 
+  const url = `http://twitter.com/intent/tweet?text=${text}`
+
   return (
     <div id="quote-box" className="quote-box">
       <div>
@@ -45,7 +47,7 @@ function App() {
       </div>
       <div className='footer'>
         <button className="tweet">
-          <a className="twitter-share-button" href="https://twitter.com/intent/tweet" target='_top'><FaTwitter size="28px" color="white" /></a>
+          <a className="twitter-share-button" href={url} target='_top'><FaTwitter size="28px" color="white" /></a>
         </button>
         <button id="new-quote" className="new-quote" onClick={refreshPage}>New Quote</button>
       </div>
