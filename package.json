@@ -1,6 +1,6 @@
 {
   "name": "random-quote-machine",
-  "homepage": "http://itsjotab.io/random-quote-fcc",
+  "homepage": "http://itsjotab.io/random-quote-machine-fcc",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
