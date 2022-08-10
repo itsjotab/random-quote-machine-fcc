@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import axios from "axios";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
@@ -46,7 +46,7 @@ function App() {
       </div>
       <div className='footer'>
         <button className="tweet">
-          <a className="twitter-share-button" href="https://twitter.com/intent/tweet" target='_blank'><FaTwitter size="28px" color="white" /></a>
+          <a className="twitter-share-button" href="https://twitter.com/intent/tweet" target='_top'><FaTwitter size="28px" color="white" /></a>
         </button>
         <button id="new-quote" className="new-quote" onClick={refreshPage}>New Quote</button>
       </div>
