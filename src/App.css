@@ -13,7 +13,7 @@ body {
   border: 1px solid black;
   box-shadow: 10px 15px 15px;
   width: 700px;
-  height: 250px;
+  min-height: 250px;
   margin: 100px;
   text-align: center;
   padding: 30px;
@@ -37,6 +37,7 @@ h1 {
   box-shadow: 3px 6px 7px;
   width: 70px;
   height: 60px;
+  position: relative;
 }
 
 .tweet:hover {
@@ -70,5 +71,6 @@ h1 {
   font-size: 18px;
   border-radius: 7px;
   background-color: rgb(104, 77, 77, 0.25);
+  position: relative;
 }
 
