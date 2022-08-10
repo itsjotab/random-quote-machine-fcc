@@ -37,8 +37,6 @@ function App() {
     window.location.reload(false);
   }
 
-  const url = `http://twitter.com/intent/tweet?text=${text}`
-
   return (
     <div id="quote-box" className="quote-box">
       <div>
@@ -46,9 +44,7 @@ function App() {
         <h4 id="author" className="author">- {author}</h4>
       </div>
       <div className='footer'>
-        <button className="tweet">
-          <a className="twitter-share-button" href={url} target='_top'><FaTwitter size="28px" color="white" /></a>
-        </button>
+          <a className="twitter-share-button" href={`http://twitter.com/intent/tweet?text=${text} \n by: ${author}`} target='_top'><button className="tweet"><FaTwitter size="28px" color="white" /></button></a>
         <button id="new-quote" className="new-quote" onClick={refreshPage}>New Quote</button>
       </div>
       <script crossorigin src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
