@@ -10,7 +10,7 @@ function App() {
   
   const [text, setText] = useState('');
   const [author, setAuthor] = useState('');
-  const [refresh, setRefresh] = useState(true)
+ 
 
   function refreshPage() {
     window.location.reload(false);
@@ -19,7 +19,7 @@ function App() {
   const GetPosts = async () => {
     try {
       const userPosts = await axios.get(`https://goquotes-api.herokuapp.com/api/v1/random?count=1`);
-      console.log(userPosts)
+
       userPosts.data.quotes.map(quote => {
         setText(quote.text);
         setAuthor(quote.author);
@@ -44,10 +44,9 @@ function App() {
         <h4 id="author" className="author">- {author}</h4>
       </div>
       <div className='footer'>
-          <a className="twitter-share-button" href={`http://twitter.com/intent/tweet?text=${text} \n by: ${author}`} target='_top'><button className="tweet"><FaTwitter size="28px" color="white" /></button></a>
+          <a id="tweet-quote" className="twitter-share-button" href={`http://twitter.com/intent/tweet?text=${text} \n by: ${author}`} target='_top'><button className="tweet"><FaTwitter size="28px" color="white" /></button></a>
         <button id="new-quote" className="new-quote" onClick={refreshPage}>New Quote</button>
       </div>
-      <script crossorigin src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     </div>
   );
 }
